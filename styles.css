@@ -334,10 +334,8 @@ nav a:hover {
   height: 100vh;
   padding: 5px;
   display: block;
-  background-image: url(
-    "./Images/Home.jpg"
-  );
-   position: relative;
+  background-image: url("./Images/Home.jpg");
+  position: relative;
   
 }
 
