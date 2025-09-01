@@ -69,7 +69,7 @@ nav a:hover {
 
 /* Listings Section */
 .listings {
-   
+    padding: 5rem 2rem;
     background: #f8f9fa;
 }
 
@@ -327,7 +327,7 @@ nav a:hover {
 }
 
 .home{
-background-size: cover;
+     background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
@@ -335,7 +335,7 @@ background-size: cover;
   padding: 5px;
   display: block;
   background-image: url(
-    "/Images/Home-1.jpg"
+    "/Images/Home.jpg"
   );
    position: relative;
   
