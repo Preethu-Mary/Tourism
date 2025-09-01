@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kerala Tourism Sites</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#listings">Destinations</a></li>
+            <li><a href="#activities">Activities</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div id="main-content">
+
+        <!-- Listings Section -->
+        <section id="listings" class="listings">
+            <h2 class="section-title">Our Homes in Kerala</h2>
+            <div class="home">
+              <div class="text-overlay">
+                <h1>Discover your home away from home.</h1><br><br>
+                <button class="home-button">Visit Us</button>
+              </div>
+            </div>
+        </section>
+
+        <!-- Activities Section -->
+        <section id="activities" class="activities">
+            <h2 class="section-title">Traditions We Share</h2>
+            <div class="activities-grid">
+                <div class="activity-card">
+                     <a href="cultural.html"> <!-- Link to the desired page -->
+                        <img src="./Images/Kathakali.jpg" alt="Cultural performance">
+                    </a>
+                    <div class="activity-content">
+                        <h3>Cultural performances</h3>
+                        <p>Experience the rich heritage of traditional arts that have been passed down through generations.</p>
+                    </div>
+                </div>
+
+                
+                <div class="activity-card">
+                    <img src="./Images/Family.webp" alt="Family">
+                    <div class="activity-content">
+                        <h3>Beyond Tourism</h3>
+                        <p>Experience village life with our family and friends.</p>
+                    </div>
+                </div>
+
+                <div class="activity-card">
+                    <img src="./Images/wildlife.jpg" alt="Wildlife">
+                    <div class="activity-content">
+                        <h3>Wildlife Safaris</h3>
+                        <p>Spot elephants, deers, and exotic birds in natural habitats</p>
+                    </div>
+                </div>
+                
+
+                    <div class="activity-card">
+                    <img src="./Images/Handicrafts.jpg" alt="Handicrafts">
+                    <div class="activity-content">
+                        <h3>Handicrafts</h3>
+                        <p>Join us to learn a craft and take home a skill.</p>
+                    </div>
+                </div>
+
+                                
+                <div class="activity-card">
+                    <img src="./Images/Food.jpg" alt="Food">
+                    <div class="activity-content">
+                        <h3>Authentic Kerala Flavours</h3>
+                        <p>A taste of our village where every bite tells a story of tradition</p>
+                    </div>
+                </div>
+                
+                <div class="activity-card">
+                    <img src="./Images/Farming.jpeg" class="Farming" alt="Cultural">
+                    <div class="activity-content">
+                        <h3>Hands in the Soil</h3>
+                        <p>Feel the magic of cultivating crops in a traditional village setting.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="contact-container">
+                <h2 class="section-title">Contact Us</h2>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="destination">Preferred Destination</label>
+                            <input type="text" id="destination" name="destination">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your travel plans..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                    
+                    <div id="successMessage" class="success-message">
+                        Thank you for your message! We'll get back to you soon.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Detail Pages -->
+    <div id="detail-munnar" class="detail-page">
+        <div class="detail-hero" style="background-image: url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1200&h=600&fit=crop')">
+            <div class="detail-title">
+                <h1>Munnar - Hill Station Paradise</h1>
+            </div>
+        </div>
+        <div class="detail-content">
+            <button class="back-btn" onclick="showMain()">← Back to Home</button>
+            <h2>About Munnar</h2>
+            <p>Munnar is one of the most popular hill stations in Kerala and in South India. Munnar is located around 1,600 meters above sea level, in the Western Ghats mountain range. Munnar was the favoured summer resort of the erstwhile British rulers in colonial days.</p>
+            
+            <h3>Key Attractions</h3>
+            <ul>
+                <li><strong>Tea Gardens:</strong> Endless rolling hills covered with tea plantations</li>
+                <li><strong>Eravikulam National Park:</strong> Home to the endangered Nilgiri Tahr</li>
+                <li><strong>Mattupetty Dam:</strong> Beautiful reservoir surrounded by hills</li>
+                <li><strong>Top Station:</strong> Highest point offering panoramic views</li>
+                <li><strong>Tea Museum:</strong> Learn about tea processing and history</li>
+            </ul>
+            
+            <h3>Best Time to Visit</h3>
+            <p>September to March is the ideal time to visit Munnar when the weather is pleasant and perfect for sightseeing.</p>
+            
+            <h3>Activities</h3>
+            <p>Trekking, tea plantation visits, boating, wildlife spotting, photography, and nature walks.</p>
+        </div>
+    </div>
+
+    <div id="detail-alleppey" class="detail-page">
+        <div class="detail-hero" style="background-image: url('https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=1200&h=600&fit=crop')">
+            <div class="detail-title">
+                <h1>Alleppey - Venice of the East</h1>
+            </div>
+        </div>
+        <div class="detail-content">
+            <button class="back-btn" onclick="showMain()">← Back to Home</button>
+            <h2>About Alleppey (Alappuzha)</h2>
+            <p>Alleppey is a city on the Laccadive Sea in southern India's Kerala state. It's the hub of Kerala's backwaters network, a labyrinthine system of canals, rivers, lakes and inlets dotted with traditional houseboats.</p>
+            
+            <h3>Key Attractions</h3>
+            <ul>
+                <li><strong>Backwaters:</strong> Network of canals, rivers, and lakes</li>
+                <li><strong>Houseboats:</strong> Traditional Kettuvallams converted to floating hotels</li>
+                <li><strong>Alleppey Beach:</strong> Beautiful coastline with lighthouse</li>
+                <li><strong>Vembanad Lake:</strong> Largest lake in Kerala</li>
+                <li><strong>Snake Boat Races:</strong> Traditional boat racing during festivals</li>
+            </ul>
+            
+            <h3>Best Time to Visit</h3>
+            <p>November to February offers the most pleasant weather for backwater cruises and outdoor activities.</p>
+            
+            <h3>Activities</h3>
+            <p>Houseboat cruising, fishing, bird watching, village visits, coir making demonstrations, and beach activities.</p>
+        </div>
+    </div>
+
+    <div id="detail-kochi" class="detail-page">
+        <div class="detail-hero" style="background-image: url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&h=600&fit=crop')">
+            <div class="detail-title">
+                <h1>Kochi - Queen of Arabian Sea</h1>
+            </div>
+        </div>
+        <div class="detail-content">
+            <button class="back-btn" onclick="showMain()">← Back to Home</button>
+            <h2>About Kochi (Cochin)</h2>
+            <p>Kochi is a major port city on the southwest coast of India. It's known for its eclectic architecture, from Portuguese colonial structures to Dutch palaces and British-era buildings.</p>
+            
+            <h3>Key Attractions</h3>
+            <ul>
+                <li><strong>Fort Kochi:</strong> Historic area with colonial architecture</li>
+                <li><strong>Chinese Fishing Nets:</strong> Iconic fishing nets at sunset</li>
+                <li><strong>Mattancherry Palace:</strong> Portuguese palace with Kerala murals</li>
+                <li><strong>Jewish Synagogue:</strong> Oldest active synagogue in Commonwealth</li>
+                <li><strong>Spice Markets:</strong> Aromatic spice trading centers</li>
+            </ul>
+            
+            <h3>Best Time to Visit</h3>
+            <p>October to March provides comfortable weather for exploring the historic sites and waterfront areas.</p>
+            
+            <h3>Activities</h3>
+            <p>Heritage walks, spice shopping, boat rides, cultural performances, art gallery visits, and street food tours.</p>
+        </div>
+    </div>
+
+    <div id="detail-thekkady" class="detail-page">
+        <div class="detail-hero" style="background-image: url('https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=1200&h=600&fit=crop')">
+            <div class="detail-title">
+                <h1>Thekkady - Wildlife Paradise</h1>
+            </div>
+        </div>
+        <div class="detail-content">
+            <button class="back-btn" onclick="showMain()">← Back to Home</button>
+            <h2>About Thekkady</h2>
+            <p>Thekkady is a popular tourist destination located in the Idukki district of Kerala. It's famous for the Periyar Wildlife Sanctuary and its artificial lake formed by the Mullaperiyar Dam.</p>
+            
+            <h3>Key Attractions</h3>
+            <ul>
+                <li><strong>Periyar Wildlife Sanctuary:</strong> Home to elephants, tigers, and diverse wildlife</li>
+                <li><strong>Periyar Lake:</strong> Scenic lake formed by Mullaperiyar Dam</li>
+                <li><strong>Spice Plantations:</strong> Cardamom, pepper, and other spice gardens</li>
+                <li><strong>Bamboo Rafting:</strong> Adventure activity on Periyar Lake</li>
+                <li><strong>Elephant Junction:</strong> Elephant rides and interactions</li>
+            </ul>
+            
+            <h3>Best Time to Visit</h3>
+            <p>September to April is ideal for wildlife viewing and outdoor activities in comfortable weather.</p>
+            
+            <h3>Activities</h3>
+            <p>Wildlife safaris, boat cruises, spice plantation tours, trekking, bamboo rafting, and elephant interactions.</p>
+        </div>
+    </div>
+
+    <div id="detail-kovalam" class="detail-page">
+        <div class="detail-hero" style="background-image: url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&h=600&fit=crop')">
+            <div class="detail-title">
+                <h1>Kovalam - Beach Paradise</h1>
+            </div>
+        </div>
+        <div class="detail-content">
+            <button class="back-btn" onclick="showMain()">← Back to Home</button>
+            <h2>About Kovalam</h2>
+            <p>Kovalam is an internationally renowned beach destination in Kerala. The word Kovalam means 'grove of coconut trees' and true to its name, the place is abundant with coconut tree groves.</p>
+            
+            <h3>Key Attractions</h3>
+            <ul>
+                <li><strong>Lighthouse Beach:</strong> Most popular beach with iconic lighthouse</li>
+                <li><strong>Hawah Beach:</strong> Peaceful crescent-shaped beach</li>
+                <li><strong>Samudra Beach:</strong> Less crowded beach perfect for relaxation</li>
+                <li><strong>Vizhinjam:</strong> Historic fishing village nearby</li>
+                <li><strong>Ayurvedic Centers:</strong> Traditional healing and wellness centers</li>
+            </ul>
+            
+            <h3>Best Time to Visit</h3>
+            <p>December to March offers perfect beach weather with calm seas and pleasant temperatures.</p>
+            
+            <h3>Activities</h3>
+            <p>Sunbathing, swimming, surfing, Ayurvedic treatments, yoga, fishing, and beach volleyball.</p>
+        </div>
+    </div>
+
+    <div id="detail-wayanad" class="detail-page">
+        <div class="detail-hero" style="background-image: url('https://images.unsplash.com/photo-1590736969955-71cc94901144?w=1200&h=600&fit=crop')">
+            <div class="detail-title">
+                <h1>Wayanad - Green Paradise</h1>
+            </div>
+        </div>
+        <div class="detail-content">
+            <button class="back-btn" onclick="showMain()">← Back to Home</button>
+            <h2>About Wayanad</h2>
+            <p>Wayanad is a rural district in Kerala state, southwest India. In the east, the Wayanad Wildlife Sanctuary is a lush, forested region with areas of high altitude, home to animals including Asiatic elephants, tigers, leopards and egrets.</p>
+            
+            <h3>Key Attractions</h3>
+            <ul>
+                <li><strong>Wayanad Wildlife Sanctuary:</strong> Rich biodiversity and wildlife</li>
+                <li><strong>Chembra Peak:</strong> Highest peak in Wayanad with heart-shaped lake</li>
+                <li><strong>Banasura Sagar Dam:</strong> Largest earthen dam in India</li>
+                <li><strong>Edakkal Caves:</strong> Prehistoric cave paintings</li>
+                <li><strong>Soochipara Falls:</strong> Three-tiered waterfall perfect for swimming</li>
+            </ul>
+            
+            <h3>Best Time to Visit</h3>
+            <p>October to May is the best time to explore Wayanad's natural attractions and outdoor activities.</p>
+            
+            <h3>Activities</h3>
+            <p>Trekking, wildlife safaris, cave exploration, waterfall visits, plantation tours, and adventure sports.</p>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Show detail page
+        function showDetail(destination) {
+            document.getElementById('main-content').style.display = 'none';
+            document.getElementById('detail-' + destination).style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Show main page
+        function showMain() {
+            document.querySelector('.detail-page[style*="block"]').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const formObject = {};
+            formData.forEach((value, key) => {
+                formObject[key] = value;
+            });
+            
+            // Simulate email sending (in real implementation, this would send to a server)
+            console.log('Form submitted:', formObject);
+            
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Reset form
+            this.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+            
+            // In a real implementation, you would send this data to your server
+            // which would then send an automated email
+            simulateEmailSending(formObject);
+        });
+
+        // Simulate
