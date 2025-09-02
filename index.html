@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kerala Tourism Sites</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
 <header>
   <nav class="navbar">
     <div class="logo">
-      <h1 class="logo-text">Village Trials</h1>
+      <a href="/"><h1 class="logo-text">Village Trials</h1></a>
     </div>
 
     <div class="hamburger" id="hamburger">
@@ -20,7 +23,6 @@
 
     <ul class="nav-links" id="nav-links">
       <li><a href="#hero">Home</a></li>
-      <li><a href="#listings">Destinations</a></li>
       <li><a href="#activities">Activities</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -36,8 +38,11 @@
             <div class="home">
               <div class="text-overlay">
                 <h1>Discover your home away from home.</h1><br><br>
-                <button class="home-button">Explore</button>
+                <button class="home-button">View Listings</button>
               </div>
+            </div><br>
+            <div class="home-description">
+                Come, join us in exploring both our roots and routes. Experience a warm, homely stay with our family and friends. Travel through our village, learn its traditions, and immerse yourself in the essence of our heritage. Let this getaway become a story you’ll cherish and carry with you into tomorrow.
             </div>
         </section>
 
@@ -50,14 +55,16 @@
                         <img src="./Images/Kathakali.jpg" alt="Cultural performance">
                     </a>
                     <div class="activity-content">
-                        <h3>Cultural performances</h3>
+                        <h3>Cultural Arts & Festivals</h3>
                         <p>Experience the rich heritage of traditional arts that have been passed down through generations.</p>
                     </div>
                 </div>
 
                 
                 <div class="activity-card">
-                    <img src="./Images/Family.webp" alt="Family">
+                    <a href="./BeyondTourism.html">
+                        <img src="./Images/Family.webp" alt="Family">
+                    </a>
                     <div class="activity-content">
                         <h3>Beyond Tourism</h3>
                         <p>Experience village life with our family and friends.</p>
@@ -103,7 +110,7 @@
         <!-- Contact Section -->
         <section id="contact" class="contact">
             <div class="contact-container">
-                <h2 class="section-title">Contact Us</h2>
+                <h2 class="contact-title">Contact Us</h2>
                 <div class="contact-form">
                     <form id="contactForm">
                         <div class="form-group">
