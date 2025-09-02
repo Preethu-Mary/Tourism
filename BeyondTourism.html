@@ -27,7 +27,7 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(0, 0, 0, 0.95);
+            background: #716549;
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
         }
@@ -131,7 +131,7 @@
         /* Description Section */
         .description {
             padding: 6rem 2rem;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            background: #eae9de;
         }
 
         .container {
@@ -181,7 +181,7 @@
         .description-image {
             position: relative;
             overflow: hidden;
-            border-radius: 20px;
+            border-radius: 15%;
             box-shadow: 0 20px 60px rgba(0,0,0,0.15);
         }
 
@@ -286,6 +286,7 @@
 
         .activity-content {
             padding: 2rem;
+            background: #eae9de;
         }
 
         .activity-content h3 {
@@ -295,7 +296,8 @@
         }
 
         .activity-description {
-            color: #666;
+            font-family: 'Work Sans', sans-serif;
+            color: rgba(0, 0, 0, 0.5);
             line-height: 1.6;
             margin-bottom: 1.5rem;
         }
@@ -552,6 +554,56 @@
         .fade-in {
             animation: fadeInUp 0.8s ease-out;
         }
+
+        .footer {
+  background: #716549;
+  color: white;
+  padding: 3rem 2rem 1rem;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+  color: #B4A88C;
+}
+
+.footer-section {
+  flex: 1 1 300px;
+}
+
+.footer-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #D0C9B7;
+}
+
+.footer-section p,
+.footer-section a {
+  color: #B4A88C;
+  font-size: 1rem;
+  text-decoration: none;
+  line-height: 1.6;
+}
+
+.footer-section a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #444;
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
     </style>
 </head>
 <body>
@@ -625,8 +677,8 @@
                     <div class="activity-content">
                         <h3>Wedding</h3>
                         <div class="activity-description">
-                            <span class="activity-short">For us, a wedding is both a sacred promise and a joyful festival of love.</span>
-                            <span class="activity-full">Experience authentic village life along Kerala's famous backwaters. Visit traditional homes, witness coir making, and enjoy local cuisine prepared by village families. Take a leisurely canoe ride through narrow canals, observe traditional fishing methods, and participate in daily village activities. Meet local artisans who create beautiful handicrafts using age-old techniques passed down through generations. The tour includes visits to spice gardens, coconut groves, and paddy fields where you can learn about sustainable farming practices.</span>
+                            <span class="activity-short">For us, a wedding is both a sacred promise and a joyful festival of love and commitment.</span>
+                
                         </div>
                
                         <div class="activity-actions">
@@ -644,8 +696,8 @@
                     <div class="activity-content">
                         <h3>Engagement</h3>
                         <div class="activity-description">
-                            <span class="activity-short">Explore the hill station villages of Munnar and experience life among the tea gardens. Learn traditional tea processing and stay with local families.</span>
-                            <span class="activity-full">Explore the hill station villages of Munnar and experience life among the tea gardens. Learn traditional tea processing and stay with local families who have worked in the plantations for generations. Wake up to misty mornings, participate in tea plucking, and understand the intricate process from leaf to cup. Visit the local market, try homemade tea varieties, and enjoy panoramic views of rolling green hills. The experience includes trekking through lesser-known trails, bird watching, and learning about the unique ecosystem of the Western Ghats.</span>
+                            <span class="activity-short">When families gather to exchange blessings and formally announce the match.</span>
+                            
                         </div>
                   
                         <div class="activity-actions">
@@ -662,7 +714,7 @@
                     <div class="activity-content">
                         <h3>Noolukettu</h3>
                         <div class="activity-description">
-                            <span class="activity-short">On this day, a sacred thread called noolkettu is tied around the baby's waist as a blessing of health and safety.</span>
+                            <span class="activity-short">On this day, a sacred thread called noolkettu is tied around the baby's waist as a blessing of health.</span>
     
                         </div>
                     
@@ -680,8 +732,7 @@
                     <div class="activity-content">
                         <h3>Baptism</h3>
                         <div class="activity-description">
-                            <span class="activity-short">Experience the vibrant coastal culture of fishing villages. Join morning fishing expeditions, learn traditional boat making, and enjoy fresh seafood.</span>
-                            <span class="activity-full">Experience the vibrant coastal culture of fishing villages along Kerala's pristine coastline. Join local fishermen on their morning expeditions, learn about traditional boat making techniques, and savor the freshest seafood prepared by coastal families. Witness the age-old practice of Chinese fishing nets, participate in beach seining, and understand the delicate balance between community life and the sea. The experience includes visits to fish markets, coconut climbing demonstrations, traditional dance performances, and learning about coastal conservation efforts.</span>
+                            <span class="activity-short">Baptism symbolizes purification, blessing, and initiation into the christian faith.</span>
                         </div>
                         
                         <div class="activity-actions">
@@ -698,13 +749,12 @@
                     <div class="activity-content">
                         <h3>House Warming</h3>
                         <div class="activity-description">
-                            <span class="activity-short">Discover the birthplace of Ayurveda in traditional village settings. Learn herb cultivation, participate in healing practices, and experience authentic treatments.</span>
-                            <span class="activity-full">Discover the birthplace of Ayurveda in traditional village settings where this ancient healing system has been practiced for thousands of years. Learn about medicinal herb cultivation, participate in traditional healing practices, and experience authentic treatments administered by village practitioners. Visit herbal gardens, understand the principles of Ayurvedic medicine, and participate in yoga and meditation sessions. The retreat includes consultations with traditional healers, preparation of herbal medicines, and learning about holistic wellness practices that have been preserved through generations.</span>
+                            <span class="activity-short">The auspicious ceremony to bless the house and bring peace, prosperity and good luck to its residents.</span>
                         </div>
                 
                         <div class="activity-actions">
                             <button class="read-more-btn" onclick="toggleDescription(this)">Read More</button>
-                            <div class="price-tag">₹4,500</div>
+                            <div class="price-tag">USD 50</div>
                         </div>
                     </div>
                 </div>
@@ -717,13 +767,12 @@
                     <div class="activity-content">
                         <h3>Other</h3>
                         <div class="activity-description">
-                            <span class="activity-short">Connect with indigenous tribal communities in Wayanad. Learn ancient traditions, participate in cultural ceremonies, and understand forest conservation practices.</span>
-                            <span class="activity-full">Connect with indigenous tribal communities in the lush forests of Wayanad who have lived in harmony with nature for centuries. Learn about their ancient traditions, participate in cultural ceremonies, and understand their remarkable forest conservation practices. Discover traditional hunting and gathering techniques, learn about forest medicines, and participate in their sustainable lifestyle practices. The experience includes storytelling sessions around campfires, traditional craft making, and understanding their unique relationship with the forest ecosystem. This is a rare opportunity to witness and learn from one of India's most authentic cultural experiences.</span>
+                            <span class="activity-short">Each ceremony is a window into our culture, allowing guests to experience the village life.</span>
                         </div>
               
                         <div class="activity-actions">
                             <button class="read-more-btn" onclick="toggleDescription(this)">Read More</button>
-                            <div class="price-tag">₹3,800</div>
+                            <div class="price-tag">USD 50</div>
                         </div>
                     </div>
                 </div>
@@ -731,40 +780,31 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title" style="color: white;">Get In Touch</h2>
-            
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Plan Your Village Adventure</h3>
-                    <p>Ready to embark on an authentic Kerala village experience? Contact us to customize your perfect journey through God's Own Country. Our local experts will help you create unforgettable memories.</p>
-                    
-                    <ul class="contact-details">
-                        <li>
-                            <span class="contact-icon">📞</span>
-                            <div>
-                                <strong>Phone</strong><br>
-                                +91 98765 43210
-                            </div>
-                        </li>
-                        <li>
-                            <span class="contact-icon">📧</span>
-                            <div>
-                                <strong>Email</strong><br>
-                                info@villagetrials.com
-                            </div>
-                        </li>
-                        <li>
-                            <span class="contact-icon">📍</span>
-                            <div>
-                                <strong>Address</strong><br>
-                                Kochi, Kerala 682001, India
-                            </div>
-                        </li>
-                        <li>
-                            <span class="contact-icon">⏰</span>
-                            <div>
-                                <strong>Hours</strong><br>
-                                Mon - Sun: 8:00 AM - 8
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-section contact-info">
+      <h3>Contact Us</h3>
+    <div>
+        We’d love to hear from you! Whether you're curious about our village experiences, need help planning your visit, or just want to connect, our team is here for you. Reach out through any of the channels below — we usually respond within 24 hours on weekdays.
+    </div>
+      <p><strong>Phone:</strong> <a href="tel:+919999999999">+91 99999 99999</a></p>
+      <p><strong>Email:</strong> <a href="mailto:info@example.com">info@example.com</a></p>
+      <p><strong>Address:</strong> 123 Village Road, Kerala, India</p>
+      <p><strong>Hours:</strong> Mon–Sat, 9:00 AM – 6:00 PM</p>
+    </div>
+
+    <div class="footer-section social-media">
+      <h3>Follow Us</h3>
+      <a href="https://instagram.com" target="_blank">📸 Instagram</a><br>
+      <a href="https://facebook.com" target="_blank">👍 Facebook</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Your Village Stay. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>
