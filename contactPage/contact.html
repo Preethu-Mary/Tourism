@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Booking - Village Trials</title>
+     <link rel="stylesheet" type="text/css" href="contact.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1 class="logo-text">Village Trials</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Page Header -->
+        <div class="page-header fade-in">
+            <h1 class="page-title">Contact & Booking</h1>
+            <p class="page-subtitle">Plan your perfect Kerala village experience with us. Select your preferred services and we'll create a customized itinerary just for you.</p>
+        </div>
+
+            <!-- Booking Form -->
+        <div class="booking-form fade-in">
+            <h2 class="form-title">Book Your Experience</h2>
+            
+            <form id="bookingForm">
+                <!-- Personal Details -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="travelers">Number of Travelers</label>
+                        <select id="travelers" name="travelers" required>
+                            <option value="">Select number</option>
+                            <option value="1">1 Person</option>
+                            <option value="2">2 People</option>
+                            <option value="3">3 People</option>
+                            <option value="4">4 People</option>
+                            <option value="5">5 People</option>
+                            <option value="6+">6+ People</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="travelDate">Preferred Travel Date</label>
+                        <input type="date" id="travelDate" name="travelDate">
+                    </div>
+                </div>
+
+                <!-- Services Selection -->
+                <div class="services-section">
+                    <h3 class="services-title">Select Your Preferred Experiences</h3>
+                    
+                    <div class="services-controls">
+                        <button type="button" class="control-btn" onclick="expandAll()">Expand All</button>
+                        <button type="button" class="control-btn" onclick="collapseAll()">Collapse All</button>
+                    </div>
+                    
+                    <div class="services-grid">
+                        <!-- Village Experiences -->
+                        <div class="service-category">
+                            <div class="category-header" onclick="toggleCategory(this)">
+                                <h4 class="category-title">Village Experiences</h4>
+                                <span class="expand-icon">▼</span>
+                            </div>
+                            <div class="service-options">
+                                <div class="service-options-inner">
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="backwater" name="services" value="Backwater Village Tour">
+                                        <label for="backwater">Backwater Village Tour</label>
+                                        <span class="price-info">₹2,500</span>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="tea" name="services" value="Tea Plantation Village">
+                                        <label for="tea">Tea Plantation Village</label>
+                                        <span class="price-info">₹3,200</span>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="coastal" name="services" value="Coastal Village Life">
+                                        <label for="coastal">Coastal Village Life</label>
+                                        <span class="price-info">₹2,200</span>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="tribal" name="services" value="Tribal Village Experience">
+                                        <label for="tribal">Tribal Village Experience</label>
+                                        <span class="price-info">₹3,800</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Wellness & Spa -->
+                        <div class="service-category">
+                            <div class="category-header" onclick="toggleCategory(this)">
+                                <h4 class="category-title">Wellness & Spa</h4>
+                                <span class="expand-icon">▼</span>
+                            </div>
+                            <div class="service-options">
+                                <div class="service-options-inner">
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="ayurveda" name="services" value="Ayurvedic Village Retreat">
+                                        <label for="ayurveda">Ayurvedic Village Retreat</label>
+                                        <span class="price-info">₹4,500</span>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="massage" name="services" value="Traditional Massage Therapy">
+                                        <label for="massage">Traditional Massage Therapy</label>
+                                        <span class="price-info">₹1,800</span>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="yoga" name="services" value="Village Yoga Sessions">
+                                        <label for="yoga">Village Yoga Sessions</label>
+                                        <span class="price-info">₹1,200</span>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="meditation" name="services" value="Meditation Retreats">
+                                        <label for="meditation">Meditation Retreats</label>
+                                        <span class="price-info">₹2,000</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cultural Activities -->
+                        <div class="service-category">
+                            <div class="category-header" onclick="toggleCategory(this)">
+                                <h4 class="category-title">Cultural Activities</h4>
+                                <span class="expand-icon">▼</span>
+                            </div>
+                            <div class="service-options">
+                                <div class="service-options-inner">
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="cooking" name="services" value="Traditional Cooking Classes">
+                                        <label for="cooking">Traditional Cooking Classes</label>
+                                        <span class="price-info">₹1,500</span>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="crafts" name="services" value="Local Handicraft Workshops">
+                                        <label for="crafts">Local Handicraft Workshops</label>
+                                        <span class="price-info">₹1,800</span>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="dance" name="services" value="Traditional Dance Lessons">
+                                        <label for="dance">Traditional Dance Lessons</label>
+                                        <span class="price-info">₹2,200</span>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="music" name="services" value="Folk Music Sessions">
+                                        <label for="music">Folk Music Sessions</label>
+                                        <span class="price-info">₹1,600</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Adventure Activities -->
+                        <div class="service-category">
+                            <div class="category-header" onclick="toggleCategory(this)">
+                                <h4 class="category-title">Adventure Activities</h4>
+                                <span class="expand-icon">▼</span>
+                            </div>
+                            <div class="service-options">
+                                <div class="service-options-inner">
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="trekking" name="services" value="Village Trekking Tours">
+                                        <label for="trekking">Village Trekking Tours</label>
+                                        <span class="price-info">₹2,800</span>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="cycling" name="services" value="Village Cycling Tours">
+                                        <label for="cycling">Village Cycling Tours</label>
+                                        <span class="price-info">₹1,800</span>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="fishing" name="services" value="Traditional Fishing Experience">
+                                        <label for="fishing">Traditional Fishing Experience</label>
+                                        <span class="price-info">₹2,200</span>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="farming" name="services" value="Organic Farming Experience">
+                                        <label for="farming">Organic Farming Experience</label>
+                                        <span class="price-info">₹1,500</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                    <!-- Additional Information -->
+                    <div class="form-group full-width">
+                        <label for="message">Special Requests or Additional Information</label>
+                        <textarea id="message" name="message" placeholder="Tell us about any special requirements, dietary restrictions, accessibility needs, or specific interests you have..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Booking Request</button>
+                    
+                    <div id="successMessage" class="success-message">
+                        <h3>🎉 Booking Request Sent Successfully!</h3>
+                        <p>Thank you for choosing Village Trials! We've received your booking request and will send you a detailed itinerary and payment instructions via email within 2-4 hours.</p>
+                    </div>
+                </form>
+            </div>
+    </div>
+
+    <script>
+        // Set minimum date to today
+        document.getElementById('travelDate').min = new Date().toISOString().split('T')[0];
+
+        // Toggle individual category
+        function toggleCategory(header) {
+            const category = header.parentElement;
+            const isExpanded = category.classList.contains('expanded');
+            
+            if (isExpanded) {
+                category.classList.remove('expanded');
+            } else {
+                category.classList.add('expanded');
+            }
+        }
+
+        // Expand all categories
+        function expandAll() {
+            const categories = document.querySelectorAll('.service-category');
+            categories.forEach(category => {
+                category.classList.add('expanded');
+            });
+        }
+
+        // Collapse all categories
+        function collapseAll() {
+            const categories = document.querySelectorAll('.service-category');
+            categories.forEach(category => {
+                category.classList.remove('expanded');
+            });
+        }
+
+        // Form submission handler
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.querySelector('.submit-btn');
+            const successMessage = document.getElementById('successMessage');
+            
+            // Add loading state
+            submitBtn.classList.add('loading');
+            submitBtn.textContent = 'Sending Request';
+            
+            // Collect form data
+            const formData = new FormData(this);
+            const bookingData = {};
+            
+            // Get basic form fields
+            for (let [key, value] of formData.entries()) {
+                if (key !== 'services') {
+                    bookingData[key] = value;
+                }
+            }
+            
+            // Get selected services
+            const selectedServices = [];
+            const serviceCheckboxes = document.querySelectorAll('input[name="services"]:checked');
+            serviceCheckboxes.forEach(checkbox => {
+                selectedServices.push(checkbox.value);
+            });
+            bookingData.services = selectedServices;
+            
+            // Simulate email sending (in real implementation, this would be sent to your server)
+            setTimeout(() => {
+                console.log('Booking Data:', bookingData);
+                
+                // Simulate sending automated email
+                sendAutomatedEmail(bookingData);
+                
+                // Show success message
+                successMessage.style.display = 'block';
+                successMessage.scrollIntoView({ behavior: 'smooth' });
+                
+                // Reset form
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html>
