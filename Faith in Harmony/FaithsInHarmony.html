@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traditional Wedding Experience - Village Trails</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="stylesheet" type="text/css" href="../styles.css">
+       <link rel="stylesheet" type="text/css" href="../Faith in Harmony/FaithsInHarmStyles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            margin: 2rem;
+            padding: 0;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.3s ease-out;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.3);
+        }
+
+        .modal-header {
+            position: relative;
+            height: 300px;
+            border-radius: 20px 20px 0 0;
+            overflow: hidden;
+        }
+
+        .modal-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            background: rgba(0,0,0,0.9);
+            transform: scale(1.1);
+        }
+
+        .modal-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 2rem;
+        }
+
+        .modal-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .modal-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-price {
+            background: #716549;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .modal-highlights {
+            margin-bottom: 2rem;
+        }
+
+        .modal-highlights h4 {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .modal-highlights-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.5rem;
+        }
+
+        .modal-highlights-list li {
+            padding: 0.5rem 0;
+            color: #555;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .modal-highlights-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+
+        .modal-book-btn {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            max-width: 200px;
+        }
+
+        .modal-book-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+        }
+
+        .modal-details-btn {
+            background: none;
+            border: 2px solid #716549;
+            color: #716549;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .modal-details-btn:hover {
+            background: #716549;
+            color: white;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                margin: 1rem;
+                width: calc(100% - 2rem);
+            }
+
+            .modal-title {
+                font-size: 2rem;
+            }
+
+            .modal-actions {
+                flex-direction: column;
+            }
+
+            .modal-book-btn, .modal-details-btn {
+                max-width: none;
+                width: 100%;
+            }
+
+            .modal-highlights-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="/"><h1 class="logo-text">Village Trails</h1></a>
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                ☰
+            </div>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="#description">About</a></li>
+                <li><a href="#activities">Activities</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <div class="listing-hero fade-in">
+            <h1 class="listing-title">Traditional Kerala Wedding Experience</h1>
+            <p class="listing-subtitle">Immerse yourself in the sacred rituals and joyful celebrations of a traditional Kerala wedding, where love, family, and culture come together in perfect harmony.</p>
+            
+            <div class="listing-meta">
+                <div class="price-badge">USD 50 per person</div>
+                <div class="rating">
+                    <span class="stars">★★★★★</span>
+                    <span>(4.9/5 from 127 reviews)</span>
+                </div>
+                <div class="duration">Duration: Full Day</div>
+                <div class="group-size">Max 15 guests</div>
+            </div>
+        </div>
+
+        <!-- Image Slideshow -->
+        <div class="slideshow-container fade-in">
+            <div class="slide active">
+                <img src="https://images.unsplash.com/photo-1606913084603-3e7702b01627?w=1200&h=600&fit=crop" alt="Wedding Ceremony">
+                <div class="slide-content">
+                    <h3 class="slide-title">Sacred Wedding Ceremony</h3>
+                    <p class="slide-description">Witness the beautiful rituals that bind two souls together in the presence of family and tradition.</p>
+                </div>
+            </div>
+            
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=1200&h=600&fit=crop" alt="Traditional Decorations">
+                <div class="slide-content">
+                    <h3 class="slide-title">Vibrant Decorations</h3>
+                    <p class="slide-description">Experience the colorful and elaborate decorations that make Kerala weddings truly spectacular.</p>
+                </div>
+            </div>
+            
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1544306094-e2dcade7d60e?w=1200&h=600&fit=crop" alt="Traditional Feast">
+                <div class="slide-content">
+                    <h3 class="slide-title">Grand Wedding Feast</h3>
+                    <p class="slide-description">Savor authentic Kerala cuisine served on traditional banana leaves with love and hospitality.</p>
+                </div>
+            </div>
+            
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?w=1200&h=600&fit=crop" alt="Cultural Performances">
+                <div class="slide-content">
+                    <h3 class="slide-title">Cultural Performances</h3>
+                    <p class="slide-description">Enjoy traditional music, dance, and performances that celebrate the union of two families.</p>
+                </div>
+            </div>
+
+            <button class="prev" onclick="changeSlide(-1)">❮</button>
+            <button class="next" onclick="changeSlide(1)">❯</button>
+        </div>
+
+        <div class="dots-container">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="content-grid">
+            <div class="main-content">
+                <!-- Description -->
+                <section id="activities" class="activities">
+                    <div class="container">
+                        <h2 class="section-title">Our Village Experiences</h2>
+                        
+                        <div class="activities-grid">
+                            <div class="activity-card" onclick="openModal('temple')" style="cursor: pointer;">
+                                <div class="activity-image">
+                                    <img src="../Images/Temple.jpg" alt="Temple Visit">
+                                    <div class="image-overlay">
+                                        <h3 class="overlay-title">Temple Visit</h3>
+                                        <button class="overlay-button" onclick="event.stopPropagation(); openModal('temple')">Explore More</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="activity-card" onclick="openModal('engagement')" style="cursor: pointer;">
+                                <div class="activity-image">
+                                    <img src="./Images/engagement.jpg" alt="Engagement Ceremony">
+                                </div>
+                                <div class="activity-content">
+                                    <h3>Engagement</h3>
+                                    <div class="activity-description">
+                                        <span class="activity-short">When families gather to exchange blessings and formally announce the match.</span>
+                                    </div>
+                                    <div class="activity-actions">
+                                        <button class="read-more-btn" onclick="event.stopPropagation(); openModal('engagement')">Read More</button>
+                                        <div class="price-tag">USD 50</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="activity-card" onclick="openModal('noolukettu')" style="cursor: pointer;">
+                                <div class="activity-image">
+                                    <img src="./Images/chorunu.png" alt="Noolukettu Ceremony">
+                                </div>
+                                <div class="activity-content">
+                                    <h3>Noolukettu</h3>
+                                    <div class="activity-description">
+                                        <span class="activity-short">On this day, a sacred thread called noolkettu is tied around the baby's waist as a blessing of health.</span>
+                                    </div>
+                                    <div class="activity-actions">
+                                        <button class="read-more-btn" onclick="event.stopPropagation(); openModal('noolukettu')">Read More</button>
+                                        <div class="price-tag">USD 50</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="activity-card" onclick="openModal('baptism')" style="cursor: pointer;">
+                                <div class="activity-image">
+                                    <img src="./Images/baptism.jpg" alt="Baptism Ceremony">
+                                </div>
+                                <div class="activity-content">
+                                    <h3>Baptism</h3>
+                                    <div class="activity-description">
+                                        <span class="activity-short">Baptism symbolizes purification, blessing, and initiation into the christian faith.</span>
+                                    </div>
+                                    <div class="activity-actions">
+                                        <button class="read-more-btn" onclick="event.stopPropagation(); openModal('baptism')">Read More</button>
+                                        <div class="price-tag">USD 50</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="activity-card" onclick="openModal('housewarming')" style="cursor: pointer;">
+                                <div class="activity-image">
+                                    <img src="./Images/House-warming.jpg" alt="House Warming Ceremony">
+                                </div>
+                                <div class="activity-content">
+                                    <h3>House Warming</h3>
+                                    <div class="activity-description">
+                                        <span class="activity-short">The auspicious ceremony to bless the house and bring peace, prosperity and good luck to its residents.</span>
+                                    </div>
+                                    <div class="activity-actions">
+                                        <button class="read-more-btn" onclick="event.stopPropagation(); openModal('housewarming')">Read More</button>
+                                        <div class="price-tag">USD 50</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="activity-card" onclick="openModal('faiths')" style="cursor: pointer;">
+                                <div class="activity-image">
+                                    <img src="./Images/church.jpg" alt="Faiths in Harmony">
+                                </div>
+                                <div class="activity-content">
+                                    <h3>Faiths in Harmony</h3>
+                                    <div class="activity-description">
+                                        <span class="activity-short">You will get a chance to experience the beauty of different religions coming alive under one sky.</span>
+                                    </div>
+                                    <div class="activity-actions">
+                                        <button class="read-more-btn" onclick="event.stopPropagation(); openModal('faiths')">Read More</button>
+                                        <div class="price-tag">USD 50</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal for Activity Details -->
+    <div id="activityModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <img id="modalImage" src="" alt="Activity Image">
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+                <div class="modal-overlay">
+                    <h2 id="modalTitle" class="modal-title"></h2>
+                    <p id="modalSubtitle" class="modal-subtitle"></p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div id="modalPrice" class="modal-price"></div>
+                <div id="modalDescription" class="modal-description"></div>
+                
+                <div class="modal-highlights">
+                    <h4>Experience Highlights</h4>
+                    <ul id="modalHighlights" class="modal-highlights-list"></ul>
+                </div>
+                
+                <div class="modal-actions">
+                    <button class="modal-book-btn" onclick="bookExperience()">Book Now</button>
+                    <button class="modal-details-btn" onclick="viewFullDetails()">View Full Details</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Activity data for modal
+        const activitiesData = {
+            'temple': {
+                title: 'Traditional Temple Visit',
+                subtitle: 'Experience the spiritual heart of Kerala village life',
+                image: 'https://images.unsplash.com/photo-1588120536099-dc2ad4fefcd4?w=800&h=400&fit=crop',
+                price: 'USD 30 per person',
+                description: 'Join us for a deeply spiritual journey to ancient Kerala temples where tradition comes alive through daily rituals, prayers, and community worship. Experience the serene atmosphere of sacred spaces that have been centers of devotion for centuries, and participate in traditional ceremonies that connect you to the spiritual essence of village life.',
+                highlights: [
+                    'Visit ancient village temples',
+                    'Witness traditional daily prayers',
+                    'Participate in ritual offerings',
+                    'Learn about temple architecture',
+                    'Meet temple priests and devotees',
+                    'Experience spiritual chanting',
+                    'Traditional temple feast',
+                    'Blessing ceremony participation'
+                ]
+            },
+            'engagement': {
+                title: 'Traditional Engagement Ceremony',
+                subtitle: 'When families gather to exchange blessings and formally announce the match',
+                image: 'https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=800&h=400&fit=crop',
+                price: 'USD 50 per person',
+                description: 'Experience the beautiful tradition of a Kerala engagement ceremony, where two families come together to formally bless the union of their children. Witness the exchange of rings, traditional prayers, and the joyful celebrations that mark this important milestone in the couples journey to marriage.',
+                highlights: [
+                    'Traditional ring exchange ceremony',
+                    'Family blessing rituals',
+                    'Cultural music and prayers',
+                    'Traditional sweets and refreshments',
+                    'Henna application demonstration',
+                    'Family storytelling sessions',
+                    'Photography with the families',
+                    'Ceremonial gift exchanges'
+                ]
+            },
+            'noolukettu': {
+                title: 'Noolukettu Ceremony',
+                subtitle: 'Sacred thread blessing for health and protection of the baby',
+                image: 'https://images.unsplash.com/photo-1544306094-e2dcade7d60e?w=800&h=400&fit=crop',
+                price: 'USD 50 per person',
+                description: 'Witness this beautiful tradition where a sacred thread called noolkettu is tied around a babys waist as a blessing of health, protection, and prosperity. This intimate family ceremony showcases the deep spiritual beliefs and protective traditions of Kerala families.',
+                highlights: [
+                    'Sacred thread blessing ceremony',
+                    'Traditional prayers and chants',
+                    'Family elder blessings',
+                    'Cultural significance explanations',
+                    'Traditional baby care practices',
+                    'Herbal preparations demonstration',
+                    'Family feast participation',
+                    'Blessing participation for guests'
+                ]
+            },
+            'baptism': {
+                title: 'Christian Baptism Ceremony',
+                subtitle: 'Purification, blessing, and initiation into the Christian faith',
+                image: 'https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?w=800&h=400&fit=crop',
+                price: 'USD 50 per person',
+                description: 'Experience the sacred Christian baptism ceremony in a traditional Kerala setting. Witness this important sacrament that symbolizes purification, spiritual rebirth, and welcome into the Christian community, celebrated with deep reverence and joy by the family and community.',
+                highlights: [
+                    'Sacred baptism ceremony',
+                    'Traditional church service',
+                    'Community prayers and hymns',
+                    'Family celebration feast',
+                    'Christian cultural traditions',
+                    'Godparent ceremony participation',
+                    'Traditional Kerala Christian customs',
+                    'Community blessing participation'
+                ]
+            },
+            'housewarming': {
+                title: 'Traditional House Warming',
+                subtitle: 'Auspicious ceremony to bless the house and bring prosperity',
+                image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=400&fit=crop',
+                price: 'USD 50 per person',
+                description: 'Participate in the traditional Kerala house warming ceremony, a beautiful ritual to bless a new home and invite peace, prosperity, and good fortune. Experience ancient traditions, witness elaborate decorations, and join in the joyful celebrations as a family begins their new chapter.',
+                highlights: [
+                    'Traditional house blessing rituals',
+                    'Elaborate rangoli and decorations',
+                    'Lighting of traditional lamps',
+                    'Prayers for prosperity and peace',
+                    'Community feast and celebrations',
+                    'Traditional Vastu ceremonies',
+                    'Cultural significance explanations',
+                    'Participation in blessing rituals'
+                ]
+            },
+            'faiths': {
+                title: 'Faiths in Harmony',
+                subtitle: 'Experience the beautiful coexistence of different religious traditions',
+                image: 'https://images.unsplash.com/photo-1544306094-e2dcade7d60e?w=800&h=400&fit=crop',
+                price: 'USD 50 per person',
+                description: 'Discover the remarkable religious harmony of Kerala through various ceremonial experiences. Each ceremony offers a unique window into the rich cultural tapestry where Hindu, Christian, and Muslim traditions coexist peacefully, creating a truly diverse and inclusive community experience.',
+                highlights: [
+                    'Multi-religious ceremony experiences',
+                    'Cultural diversity demonstrations',
+                    'Interfaith dialogue sessions',
+                    'Traditional music from all faiths',
+                    'Shared feast traditions',
+                    'Community harmony stories',
+                    'Architectural heritage visits',
+                    'Peace and unity celebrations'
+                ]
+            }
+        };
+
+        // Modal functions
+        function openModal(activityType) {
+            const modal = document.getElementById('activityModal');
+            const data = activitiesData[activityType];
+            
+            if (!data) return;
+            
+            // Populate modal content
+            document.getElementById('modalTitle').textContent = data.title;
+            document.getElementById('modalSubtitle').textContent = data.subtitle;
+            document.getElementById('modalImage').src = data.image;
+            document.getElementById('modalPrice').textContent = data.price;
+            document.getElementById('modalDescription').textContent = data.description;
+            
+            // Populate highlights
+            const highlightsList = document.getElementById('modalHighlights');
+            highlightsList.innerHTML = '';
+            data.highlights.forEach(highlight => {
+                const li = document.createElement('li');
+                li.textContent = highlight;
+                highlightsList.appendChild(li);
+            });
+            
+            // Show modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('activityModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function bookExperience() {
+            alert('Booking functionality would be implemented here. Thank you for your interest!');
+        }
+
+        function viewFullDetails() {
+            // This would typically navigate to the full details page
+            window.location.href = '/wedding-details.html';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('activityModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            if (n >= slides.length) currentSlideIndex = 0;
+            if (n < 0) currentSlideIndex = slides.length - 1;
+            
+            slides[currentSlideIndex].classList.add('active');
+            dots[currentSlideIndex].classList.add('active');
+        }
+
+        function changeSlide(n) {
+            currentSlideIndex += n;
+            showSlide(currentSlideIndex);
+        }
+
+        function currentSlide(n) {
+            currentSlideIndex = n - 1;
+            showSlide(currentSlideIndex);
+        }
+
+        // Auto-advance slides every 5 seconds
+        setInterval(() => {
+            currentSlideIndex++;
+            showSlide(currentSlideIndex);
+        }, 5000);
+
+        // Mobile menu toggle
+        document.getElementById('hamburger').addEventListener('click', function() {
+            document.getElementById('nav-links').classList.toggle('active');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section, .sidebar-card').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
