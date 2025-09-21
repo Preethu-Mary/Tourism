@@ -401,7 +401,7 @@
         /* Success Message */
         .success-message {
             display: none;
-            background: linear-gradient(135deg, #4CAF50, #45a049);
+            background:#333333 ;
             color: white;
             padding: 2rem;
             border-radius: 15px;

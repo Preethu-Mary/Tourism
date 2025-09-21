@@ -160,20 +160,27 @@ function addToCart() {
     // Load existing cart from sessionStorage
     let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
 
-    // Add the current activity to the cart
-    cart.push({
-        type: currentActivityType,
-        title: activity.title,
-      
-    });
+    // Check if the activity already exists in the cart using title or type
+    const exists = cart.find(item => item.type === currentActivityType || item.title === activity.title);
 
-    // Save updated cart
-    sessionStorage.setItem('cart', JSON.stringify(cart));
+    if (!exists) {
+        // Add the current activity to the cart
+        cart.push({
+            type: currentActivityType,
+            title: activity.title,
+        });
 
-    // Optional: Confirmation
-    alert(`${activity.title} has been added to your cart!`);
-    
-    // Optional: Redirect to cart page
-    window.location.href = '../contactPage/contact.html';
+        // Save updated cart
+        sessionStorage.setItem('cart', JSON.stringify(cart));
+
+        // Confirmation
+        alert(`${activity.title} has been added to your cart!`);
+
+        // Redirect to cart page
+        window.location.href = '../contactPage/contact.html';
+    } else {
+        alert(`${activity.title} is already in your cart!`);
+    }
 }
+
 
