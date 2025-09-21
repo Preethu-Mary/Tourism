@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact & Booking - Village Trials</title>
+    <script src="./contact.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+    (function() {
+        emailjs.init("pRSfjfgDMuHvNQik7"); // 🔑 Replace with your actual public key from EmailJS
+    })();
+     flatpickr("#travelDate", {
+        mode: "range",
+        minDate: "today",
+        dateFormat: "Y-m-d"
+    });
+    </script>
+
      <link rel="stylesheet" type="text/css" href="contact.css">
 </head>
 <body>
@@ -24,11 +39,18 @@
 
     <!-- Main Container -->
     <div class="container">
-        <!-- Page Header -->
+          <!-- Page Header -->
         <div class="page-header fade-in">
             <h1 class="page-title">Contact & Booking</h1>
-            <p class="page-subtitle">Plan your perfect Kerala village experience with us. Select your preferred services and we'll create a customized itinerary just for you.</p>
         </div>
+        <h1>Your Cart</h1>
+
+        <div class="cart-container" id="cartContainer">
+            <!-- Cart items will appear here -->
+        </div>
+      <br><br>
+      <span>Complete below form and send a booking request. We will contact you soon!</span>
+    
 
             <!-- Booking Form -->
         <div class="booking-form fade-in">
@@ -72,213 +94,12 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="travelDate">Preferred Travel Date</label>
-                        <input type="date" id="travelDate" name="travelDate">
+                        <label for="travelDate">Travel Dates *</label>
+                        <input type="text" id="travelDate" name="travelDate" required>
                     </div>
                 </div>
 
-                <!-- Services Selection -->
-                <div class="services-section">
-                    <h3 class="services-title">Select Your Preferred Experiences</h3>
-                    
-                    <div class="services-controls">
-                        <button type="button" class="control-btn" onclick="expandAll()">Expand All</button>
-                        <button type="button" class="control-btn" onclick="collapseAll()">Collapse All</button>
-                    </div>
-                    
-                    <div class="services-grid">
-                        <!-- Village Experiences -->
-                        <div class="service-category">
-                            <div class="category-header" onclick="toggleCategory(this)">
-                                <h4 class="category-title">Cultural Arts & Festivals</h4>
-                                <span class="expand-icon">▼</span>
-                            </div>
-                            <div class="service-options">
-                                <div class="service-options-inner">
-                                    <div class="checkbox-item">
-                                        <input type="checkbox" id="backwater" name="services" value="Backwater Village Tour">
-                                        <label for="backwater">Backwater Village Tour</label>
-                                        <span class="price-info">₹2,500</span>
-                                    </div>
-                                    <div class="checkbox-item">
-                                        <input type="checkbox" id="tea" name="services" value="Tea Plantation Village">
-                                        <label for="tea">Tea Plantation Village</label>
-                                        <span class="price-info">₹3,200</span>
-                                    </div>
-                                    <div class="checkbox-item">
-                                        <input type="checkbox" id="coastal" name="services" value="Coastal Village Life">
-                                        <label for="coastal">Coastal Village Life</label>
-                                        <span class="price-info">₹2,200</span>
-                                    </div>
-                                    <div class="checkbox-item">
-                                        <input type="checkbox" id="tribal" name="services" value="Tribal Village Experience">
-                                        <label for="tribal">Tribal Village Experience</label>
-                                        <span class="price-info">₹3,800</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Wellness & Spa -->
-                        <div class="service-category">
-                            <div class="category-header" onclick="toggleCategory(this)">
-                                <h4 class="category-title">Beyond Tourism</h4>
-                                <span class="expand-icon">▼</span>
-                            </div>
-                            <div class="service-options">
-                                <div class="service-options-inner">
-                                    <div class="checkbox-item">
-                                        <input type="checkbox" id="ayurveda" name="services" value="Ayurvedic Village Retreat">
-                                        <label for="ayurveda">Ayurvedic Village Retreat</label>
-                                        <span class="price-info">₹4,500</span>
-                                    </div>
-                                    <div class="checkbox-item">
-                                        <input type="checkbox" id="massage" name="services" value="Traditional Massage Therapy">
-                                        <label for="massage">Traditional Massage Therapy</label>
-                                        <span class="price-info">₹1,800</span>
-                                    </div>
-                                    <div class="checkbox-item">
-                                        <input type="checkbox" id="yoga" name="services" value="Village Yoga Sessions">
-                                        <label for="yoga">Village Yoga Sessions</label>
-                                        <span class="price-info">₹1,200</span>
-                                    </div>
-                                    <div class="checkbox-item">
-                                        <input type="checkbox" id="meditation" name="services" value="Meditation Retreats">
-                                        <label for="meditation">Meditation Retreats</label>
-                                        <span class="price-info">₹2,000</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Cultural Activities -->
-                        <div class="service-category">
-                            <div class="category-header" onclick="toggleCategory(this)">
-                                <h4 class="category-title">Wildlife Safaris</h4>
-                                <span class="expand-icon">▼</span>
-                            </div>
-                            <div class="service-options">
-                                <div class="service-options-inner">
-                                    <div class="checkbox-item">
-                                        <input type="checkbox" id="cooking" name="services" value="Traditional Cooking Classes">
-                                        <label for="cooking">Traditional Cooking Classes</label>
-                                        <span class="price-info">₹1,500</span>
-                                    </div>
-                                    <div class="checkbox-item">
-                                        <input type="checkbox" id="crafts" name="services" value="Local Handicraft Workshops">
-                                        <label for="crafts">Local Handicraft Workshops</label>
-                                        <span class="price-info">₹1,800</span>
-                                    </div>
-                                    <div class="checkbox-item">
-                                        <input type="checkbox" id="dance" name="services" value="Traditional Dance Lessons">
-                                        <label for="dance">Traditional Dance Lessons</label>
-                                        <span class="price-info">₹2,200</span>
-                                    </div>
-                                    <div class="checkbox-item">
-                                        <input type="checkbox" id="music" name="services" value="Folk Music Sessions">
-                                        <label for="music">Folk Music Sessions</label>
-                                        <span class="price-info">₹1,600</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Adventure Activities -->
-                        <div class="service-category">
-                            <div class="category-header" onclick="toggleCategory(this)">
-                                <h4 class="category-title">Handicrafts</h4>
-                                <span class="expand-icon">▼</span>
-                            </div>
-                            <div class="service-options">
-                                <div class="service-options-inner">
-                                    <div class="checkbox-item">
-                                        <input type="checkbox" id="trekking" name="services" value="Village Trekking Tours">
-                                        <label for="trekking">Village Trekking Tours</label>
-                                        <span class="price-info">₹2,800</span>
-                                    </div>
-                                    <div class="checkbox-item">
-                                        <input type="checkbox" id="cycling" name="services" value="Village Cycling Tours">
-                                        <label for="cycling">Village Cycling Tours</label>
-                                        <span class="price-info">₹1,800</span>
-                                    </div>
-                                    <div class="checkbox-item">
-                                        <input type="checkbox" id="fishing" name="services" value="Traditional Fishing Experience">
-                                        <label for="fishing">Traditional Fishing Experience</label>
-                                        <span class="price-info">₹2,200</span>
-                                    </div>
-                                    <div class="checkbox-item">
-                                        <input type="checkbox" id="farming" name="services" value="Organic Farming Experience">
-                                        <label for="farming">Organic Farming Experience</label>
-                                        <span class="price-info">₹1,500</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                         <!-- Food -->
-                        <div class="service-category">
-                            <div class="category-header" onclick="toggleCategory(this)">
-                                <h4 class="category-title">Authentic Kerala Flavours</h4>
-                                <span class="expand-icon">▼</span>
-                            </div>
-                            <div class="service-options">
-                                <div class="service-options-inner">
-                                    <div class="checkbox-item">
-                                        <input type="checkbox" id="trekking" name="services" value="Village Trekking Tours">
-                                        <label for="trekking">Village Trekking Tours</label>
-                                        <span class="price-info">₹2,800</span>
-                                    </div>
-                                    <div class="checkbox-item">
-                                        <input type="checkbox" id="cycling" name="services" value="Village Cycling Tours">
-                                        <label for="cycling">Village Cycling Tours</label>
-                                        <span class="price-info">₹1,800</span>
-                                    </div>
-                                    <div class="checkbox-item">
-                                        <input type="checkbox" id="fishing" name="services" value="Traditional Fishing Experience">
-                                        <label for="fishing">Traditional Fishing Experience</label>
-                                        <span class="price-info">₹2,200</span>
-                                    </div>
-                                    <div class="checkbox-item">
-                                        <input type="checkbox" id="farming" name="services" value="Organic Farming Experience">
-                                        <label for="farming">Organic Farming Experience</label>
-                                        <span class="price-info">₹1,500</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="service-category">
-                            <div class="category-header" onclick="toggleCategory(this)">
-                                <h4 class="category-title">Hands in the Soil</h4>
-                                <span class="expand-icon">▼</span>
-                            </div>
-                            <div class="service-options">
-                                <div class="service-options-inner">
-                                    <div class="checkbox-item">
-                                        <input type="checkbox" id="trekking" name="services" value="Village Trekking Tours">
-                                        <label for="trekking">Village Trekking Tours</label>
-                                        <span class="price-info">₹2,800</span>
-                                    </div>
-                                    <div class="checkbox-item">
-                                        <input type="checkbox" id="cycling" name="services" value="Village Cycling Tours">
-                                        <label for="cycling">Village Cycling Tours</label>
-                                        <span class="price-info">₹1,800</span>
-                                    </div>
-                                    <div class="checkbox-item">
-                                        <input type="checkbox" id="fishing" name="services" value="Traditional Fishing Experience">
-                                        <label for="fishing">Traditional Fishing Experience</label>
-                                        <span class="price-info">₹2,200</span>
-                                    </div>
-                                    <div class="checkbox-item">
-                                        <input type="checkbox" id="farming" name="services" value="Organic Farming Experience">
-                                        <label for="farming">Organic Farming Experience</label>
-                                        <span class="price-info">₹1,500</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               
 
                     <!-- Additional Information -->
                     <div class="form-group full-width">
@@ -331,48 +152,54 @@
         // Form submission handler
         document.getElementById('bookingForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
+
             const submitBtn = document.querySelector('.submit-btn');
             const successMessage = document.getElementById('successMessage');
-            
+
             // Add loading state
             submitBtn.classList.add('loading');
-            submitBtn.textContent = 'Sending Request';
-            
+            submitBtn.textContent = 'Sending Request...';
+
             // Collect form data
             const formData = new FormData(this);
-            const bookingData = {};
-            
-            // Get basic form fields
-            for (let [key, value] of formData.entries()) {
-                if (key !== 'services') {
-                    bookingData[key] = value;
-                }
-            }
-            
-            // Get selected services
-            const selectedServices = [];
-            const serviceCheckboxes = document.querySelectorAll('input[name="services"]:checked');
-            serviceCheckboxes.forEach(checkbox => {
-                selectedServices.push(checkbox.value);
+            let bookingData = {};
+            formData.forEach((value, key) => {
+                bookingData[key] = value;
             });
-            bookingData.services = selectedServices;
-            
-            // Simulate email sending (in real implementation, this would be sent to your server)
-            setTimeout(() => {
-                console.log('Booking Data:', bookingData);
-                
-                // Simulate sending automated email
-                sendAutomatedEmail(bookingData);
-                
-                // Show success message
-                successMessage.style.display = 'block';
-                successMessage.scrollIntoView({ behavior: 'smooth' });
-                
-                // Reset form
-                this.reset();
+            // Get only cart item titles
+            const cartElements = document.querySelectorAll('.cart-item .cart-title');
+            let cartItems = [];
+
+            cartElements.forEach(el => {
+            cartItems.push(el.textContent.trim());
             });
+
+            // Join as a clean string for the email
+            bookingData.cart = cartItems.join(', ');
+
+
+            // Send email via EmailJS
+            emailjs.send("service_asw514k", "template_51yntpj", bookingData)
+                .then(function(response) {
+                    console.log("SUCCESS!", response.status, response.text);
+
+                    successMessage.style.display = 'block';
+                    successMessage.scrollIntoView({ behavior: 'smooth' });
+
+                    submitBtn.classList.remove('loading');
+                    submitBtn.textContent = 'Send Booking Request';
+
+                    // Reset form
+                    document.getElementById('bookingForm').reset();
+                }, function(error) {
+                    console.error("FAILED...", error);
+
+                    submitBtn.classList.remove('loading');
+                    submitBtn.textContent = 'Send Booking Request';
+                    alert("❌ Failed to send. Please try again.");
+                });
         });
+
     </script>
 </body>
 </html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Cart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background-color: #f9f9f9;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .cart-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+    }
+
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+
+    .cart-title {
+      font-weight: bold;
+    }
+
+    .cart-price {
+      color: #444;
+    }
+
+    .empty {
+      text-align: center;
+      padding: 40px;
+      color: #888;
+    }
+
+    .total {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      text-align: right;
+      font-weight: bold;
+    }
+
+    .actions {
+      margin-top: 30px;
+      text-align: right;
+    }
+
+    .actions button {
+      padding: 10px 15px;
+      margin-left: 10px;
+      border: none;
+      background-color: #007BFF;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .actions button.clear {
+      background-color: #dc3545;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Your Cart</h1>
+
+  <div class="cart-container" id="cartContainer">
+    <!-- Cart items will appear here -->
+  </div>
+
+  <script>
+    function loadCart() {
+      const cartContainer = document.getElementById('cartContainer');
+      const cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+
+      if (cart.length === 0) {
+        cartContainer.innerHTML = '<div class="empty">Your cart is empty.</div>';
+        return;
+      }
+
+      let total = 0;
+      let cartHTML = '';
+
+      cart.forEach((item, index) => {
+      
+
+        cartHTML += `
+          <div class="cart-item">
+            <div>
+              <div class="cart-title">${item.title}</div>
+              
+            </div>
+            <button onclick="removeItem(${index})">Remove</button>
+          </div>
+        `;
+      });
+
+      cartHTML += `<div class="total">Total: USD ${total.toFixed(2)}</div>`;
+      cartHTML += `
+        <div class="actions">
+          <button class="clear" onclick="clearCart()">Clear Cart</button>
+          <button onclick="checkout()">Proceed to Checkout</button>
+        </div>
+      `;
+
+      cartContainer.innerHTML = cartHTML;
+    }
+
+    function removeItem(index) {
+      const cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+      cart.splice(index, 1);
+      sessionStorage.setItem('cart', JSON.stringify(cart));
+      loadCart();
+    }
+
+    function clearCart() {
+      sessionStorage.removeItem('cart');
+      loadCart();
+    }
+
+    function checkout() {
+      alert('Checkout functionality not implemented.\nBut your cart total is stored!');
+      // In real-world: redirect to payment page or backend API
+    }
+
+    // Load cart on page load
+    loadCart();
+  </script>
+</body>
+</html>

@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Village Trials - Kerala Tourism Sites</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    </head>
-    <style>
-        * {
+* {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -605,215 +594,312 @@
   color: #bbb;
 }
 
-    </style>
-</head>
-<body>
-    <!-- Navigation -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <a href="/"><h1 class="logo-text">Village Trails</h1></a>
-            </div>
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease-out;
+}
 
-            <div class="hamburger" id="hamburger">
-                ☰
-            </div>
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-            <ul class="nav-links" id="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="#description">About</a></li>
-                <li><a href="#activities">Activities</a></li>
-                <li><a href="/contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+.modal-content {
+    background: white;
+    margin: 2rem;
+    padding: 0;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slideUp 0.3s ease-out;
+    box-shadow: 0 25px 70px rgba(0,0,0,0.3);
+}
 
-    <!-- Description Section -->
-    <section id="description" class="description">
-        <div class="container">
-            <h2 class="section-title">Beyond Tourism</h2>
-            
-            <div class="description-content">
-                <div class="description-text">
-                    <h4 style="color: black;">Be More than A Tourist, Be a Guest In Our Timeless Tradition</h4>
-                    <p> Village Trials offers you an authentic glimpse into the heart of Kerala's traditional village life. Step away from the tourist trails and immerse yourself in the genuine culture, customs, and natural beauty that have remained unchanged for centuries.</p>
-                    <br>
-                    
-                    <p>Join us on this incredible journey where every village has a story, every tradition holds wisdom, and every experience creates lasting memories.</p>
-                </div>
-                
-                <div class="description-image">
-                    <img src="./Images/hindu.jpg" alt="Kerala Village Life">
-                </div>
-            </div>
+.modal-header {
+    position: relative;
+    height: 380px;
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+}
 
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <span class="stat-number">50+</span>
-                    <div class="stat-label">Village Experiences</div>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">25+</span>
-                    <div class="stat-label">Local Communities</div>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">10</span>
-                    <div class="stat-label">Years Experience</div>
-                </div>
-            </div>
-        </div>
-    </section>
+.modal-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-    <!-- Activities Section -->
-    <section id="activities" class="activities">
-        <div class="container">
-            <h2 class="section-title">Our Village Experiences</h2>
-            
-            <div class="activities-grid">
-                <div class="activity-card">
-                    <div class="activity-image">
-                        <img src="./Images/muslim-wedding.webp" alt=" Wedding">
-    
-                    </div>
-                    <div class="activity-content">
-                        <h3>Wedding</h3>
-                        <div class="activity-description">
-                            <span class="activity-short">For us, a wedding is both a sacred promise and a joyful festival of love and commitment.</span>
-                
-                        </div>
-               
-                        <div class="activity-actions">
-                            <button class="read-more-btn" onclick="toggleDescription(this)">Read More</button>
-                            <div class="price-tag">USD 50</div>
-                        </div>
-                    </div>
-                </div>
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
 
-                <div class="activity-card">
-                    <div class="activity-image">
-                        <img src="./Images/engagement.jpg" alt="Tea Plantation Village">
-                     
-                    </div>
-                    <div class="activity-content">
-                        <h3>Engagement</h3>
-                        <div class="activity-description">
-                            <span class="activity-short">When families gather to exchange blessings and formally announce the match.</span>
-                            
-                        </div>
-                  
-                        <div class="activity-actions">
-                            <button class="read-more-btn" onclick="toggleDescription(this)">Read More</button>
-                            <div class="price-tag">USD 50</div>
-                        </div>
-                    </div>
-                </div>
+.modal-close:hover {
+    background: rgba(0,0,0,0.9);
+    transform: scale(1.1);
+}
 
-                <div class="activity-card">
-                    <div class="activity-image">
-                        <img src="./Images/chorunu.png" alt="Spice Village Discovery">
-                    </div>
-                    <div class="activity-content">
-                        <h3>Noolukettu</h3>
-                        <div class="activity-description">
-                            <span class="activity-short">On this day, a sacred thread called noolkettu is tied around the baby's waist as a blessing of health.</span>
-    
-                        </div>
-                    
-                        <div class="activity-actions">
-                            <button class="read-more-btn" onclick="toggleDescription(this)">Read More</button>
-                            <div class="price-tag">USD 50</div>
-                        </div>
-                    </div>
-                </div>
+.modal-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    padding: 2rem;
+}
 
-                <div class="activity-card">
-                    <div class="activity-image">
-                        <img src="./Images/baptism.jpg" alt="Coastal Village Life">
-                    </div>
-                    <div class="activity-content">
-                        <h3>Baptism</h3>
-                        <div class="activity-description">
-                            <span class="activity-short">Baptism symbolizes purification, blessing, and initiation into the christian faith.</span>
-                        </div>
-                        
-                        <div class="activity-actions">
-                            <button class="read-more-btn" onclick="toggleDescription(this)">Read More</button>
-                            <div class="price-tag">USD 50</div>
-                        </div>
-                    </div>
-                </div>
+.modal-title {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
 
-                <div class="activity-card">
-                    <div class="activity-image">
-                        <img src="./Images/House-warming.jpg" alt="Ayurvedic Village Retreat">
-                    </div>
-                    <div class="activity-content">
-                        <h3>House Warming</h3>
-                        <div class="activity-description">
-                            <span class="activity-short">The auspicious ceremony to bless the house and bring peace, prosperity and good luck to its residents.</span>
-                        </div>
-                
-                        <div class="activity-actions">
-                            <button class="read-more-btn" onclick="toggleDescription(this)">Read More</button>
-                            <div class="price-tag">USD 50</div>
-                        </div>
-                    </div>
-                </div>
+.modal-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
 
-                <div class="activity-card">
-                    <div class="activity-image">
-                        <a href="./BeyondTour/FaithsInHarmony.html">
-                            <img src="./Images/church.jpg" alt="Tribal Village Experience">
-                        </a>
-                        
-            
-                    </div>
-                    <div class="activity-content">
+.modal-body {
+    padding: 2rem;
+}
 
-                        <h3>Faiths in Harmony</h3>
-                        <div class="activity-description">
-                            <span class="activity-short">You will get a chance to experience the beauty of different relogions coming alive under one sky.</span>
-                        </div>
-              
-                        <div class="activity-actions">
-                            <button class="read-more-btn" onclick="window.location.href='./Faith in Harmony/FaithsInHarmony.html'">
-                                Read More
-                                </button>
-                         
+.modal-price {
+    background: #716549;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
 
-                            <div class="price-tag">USD 50</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+.modal-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 2rem;
+}
 
-<footer class="footer">
-  <div class="footer-container">
+.modal-highlights {
+    margin-bottom: 2rem;
+}
 
-    <div class="footer-section contact-info">
-      <h3>Contact Us</h3>
-    <div>
-        We’d love to hear from you! Whether you're curious about our village experiences, need help planning your visit, or just want to connect, our team is here for you. Reach out through any of the channels below — we usually respond within 24 hours on weekdays.
-    </div>
-      <p><strong>Phone:</strong> <a href="tel:+919999999999">+91 99999 99999</a></p>
-      <p><strong>Email:</strong> <a href="mailto:info@example.com">info@example.com</a></p>
-      <p><strong>Address:</strong> 123 Village Road, Kerala, India</p>
-      <p><strong>Hours:</strong> Mon–Sat, 9:00 AM – 6:00 PM</p>
-    </div>
+.modal-highlights h4 {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
 
-    <div class="footer-section social-media">
-      <h3>Follow Us</h3>
-      <a href="https://instagram.com" target="_blank">📸 Instagram</a><br>
-      <a href="https://facebook.com" target="_blank">👍 Facebook</a>
-    </div>
+.modal-highlights-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.5rem;
+}
 
-  </div>
+.modal-highlights-list li {
+    padding: 0.5rem 0;
+    color: #555;
+    position: relative;
+    padding-left: 1.5rem;
+}
 
-  <div class="footer-bottom">
-    <p>© 2025 Your Village Stay. All rights reserved.</p>
-  </div>
-</footer>
-</body>
-</html>
+.modal-highlights-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+}
+
+.modal-book-btn {
+    background: none;
+    border: 2px solid #716549;
+    color: #716549;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s 
+ease;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.modal-book-btn:hover {
+    transform: translateY(-2px);
+    background: #716549;
+    color: white;
+    box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+}
+
+.modal-details-btn {
+    background: none;
+    border: 2px solid #716549;
+    color: #716549;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+ 
+        background: #716549;
+    color: white;
+    padding: 0.8rem 1.2rem;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.modal-details-btn:hover {
+    background: #716549;
+    color: white;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        margin: 1rem;
+        width: calc(100% - 2rem);
+    }
+
+    .modal-title {
+        font-size: 2rem;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+
+    .modal-book-btn, .modal-details-btn {
+        max-width: none;
+        width: 100%;
+    }
+
+    .modal-highlights-list {
+        grid-template-columns: 1fr;
+    }
+}
+.modal-slideshow {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slideshow-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+  z-index: 0;
+}
+
+.slideshow-container img.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+}
+
+/* ---- Text Overlay that stays fixed on top of slideshow ---- */
+.modal-header {
+  position: relative;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 250px;
+  left: 20px;
+  z-index: 2;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  pointer-events: none; /* Prevent text from blocking clicks on buttons */
+}
+
+.modal-title {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.modal-subtitle {
+  font-size: 16px;
+  margin: 5px 0 0;
+}
+
+/* ---- Navigation Arrows ---- */
+.slideshow-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 15px;
+  z-index: 3;
+}
+
+.slideshow-controls .prev,
+.slideshow-controls .next {
+  cursor: pointer;
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+  user-select: none;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 8px 12px;
+  border-radius: 50%;
+}
